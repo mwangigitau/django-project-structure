@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    web:
+        build: .
+        container_name: docker_django
+        command: bash -c "python manage.py runserver 0.0.0.0:8000"
+        volumes:
+            - .:/code
+        ports:
+            - "8000:8000"
+    db:
+      image: postgres
+      environment:
+        - POSTGRES_DB=publicwifi
+        - POSTGRES_USER=dbclient
+        - POSTGRES_PASSWORD=850cx!nc495
+      ports:
+        - 5432:5432
